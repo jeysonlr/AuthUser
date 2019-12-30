@@ -7,19 +7,19 @@ namespace User\Service\User;
 use User\Entity\User;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
-use User\Service\User\InsertUserService;
-use User\Util\CreateValidatePassword;
+use User\Service\User\GetUserService;
+use User\Service\User\UpdateUserService;
 
-class InsertUserServiceFactory
+class UpdateUserServiceFactory
 {
-    public function __invoke(ContainerInterface $container): InsertUserService
+    public function __invoke(ContainerInterface $container): UpdateUserService
     {
         $entityManager = $container->get(EntityManager::class);
         $userRepository = $entityManager->getRepository(User::class);
-        $passwordHash = $container->get(CreateValidatePassword::class);
-        return new InsertUserService(
+        $getUserService = $container->get(GetUserService::class);
+        return new UpdateUserService(
             $userRepository,
-            $passwordHash
+            $getUserService
         );
     }
 }

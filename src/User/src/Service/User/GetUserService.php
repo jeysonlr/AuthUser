@@ -39,4 +39,24 @@ class GetUserService extends Filters implements GetUserServiceInterface
     {
         return $this->userRepository->findAllUsers($this->getFilters());
     }
+
+    /**
+     * Busca um usuário pelo login
+     * @param int $login
+     * @return User|null
+     */
+    public function getByLoginTccUser(string $login): ?User
+    {
+        return $this->userRepository->findByLoginTccUsuario($login);
+    }
+
+    /**
+     * Busca um usuário pelo email
+     * @param int $email
+     * @return User|null
+     */
+    public function getByEmailTccUser(string $email): ?User
+    {
+        return $this->userRepository->findByEmailTccUsuario($email);
+    }
 }

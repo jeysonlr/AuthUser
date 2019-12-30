@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Validation;
 
 class ValidationFactory
 {
-    public function __invoke(ContainerInterface $container)
+    public function __invoke()
     {
         $validator = Validation::createValidatorBuilder()
         ->enableAnnotationMapping()->getValidator();

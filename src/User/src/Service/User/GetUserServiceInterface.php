@@ -18,4 +18,16 @@ interface GetUserServiceInterface
      * @return array
      */
     public function getAllUsers(): ?array;
+
+    /**
+     * @param int $login
+     * @return User|null
+     */
+    public function getByLoginTccUser(string $login): ?User;
+
+    /**
+     * @param int $email
+     * @return User|null
+     */
+    public function getByEmailTccUser(string $email): ?User;
 }

@@ -12,10 +12,7 @@ declare(strict_types=1);
 return [
     'dependencies' => [
         'factories' => [
-            App\Middleware\MonologMiddleware::class => App\Middleware\MonologMiddlewareFactory::class,
-            User\Handler\GetAllUserHandler::class => User\Handler\GetAllUserHandlerFactory::class,
-            User\Handler\GetUserByIdHandler::class => User\Handler\GetUserByIdHandlerFactory::class,
-            User\Handler\InsertUserHandler::class => User\Handler\InsertUserHandlerFactory::class,
+            User\Middleware\User\UpdateUserMiddleware::class => User\Middleware\User\UpdateUserMiddlewareFactory::class,
         ],
     ],
 ];

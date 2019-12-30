@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Util\Validation;
 
 use Psr\Container\ContainerInterface;
+use App\Util\Validation\ValidationService;
 use Symfony\Component\Validator\Validation;
 
 class ValidationServiceFactory

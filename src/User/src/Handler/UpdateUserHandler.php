@@ -11,17 +11,17 @@ use App\Util\Enum\SuccessMessage;
 use App\Service\Response\ApiResponse;
 use App\Util\Serialize\SerializeUtil;
 use Psr\Http\Message\ResponseInterface;
-use User\Service\User\InsertUserService;
-use User\Exception\UserDatabaseException;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use User\Exception\UserDatabaseException;
+use User\Service\User\UpdateUserServiceInterface;
 
-class InsertUserHandler implements RequestHandlerInterface
+class UpdateUserHandler implements RequestHandlerInterface
 {
     /**
-     * @var InsertUserService
+     * @var UpdateUserServiceInterface
      */
-    private $insertUserService;
+    private $updateUserService;
 
     /**
      * @var SerializeUtil
@@ -29,28 +29,30 @@ class InsertUserHandler implements RequestHandlerInterface
     private $serializeUtil;
 
     public function __construct(
-        InsertUserService $insertUserService,
+        UpdateUserServiceInterface $updateUserService,
         SerializeUtil $serializeUtil
     ) {
-        $this->insertUserService = $insertUserService;
+        $this->updateUserService = $updateUserService;
         $this->serializeUtil = $serializeUtil;
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @return ResponseInterface
+     */
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         try {
-            // $user = $this->serializeUtil->deserialize(
-            //     $request->getBody()->getContents(),
-            //     User::class,
-            //     'json'
-            // );
-
-            $this->insertUserService->insertUser(
-                $request->getAttribute('user')
+            $user = $this->serializeUtil->deserialize(
+                $request->getBody()->getContents(),
+                User::class,
+                'json'
             );
-
+            $user->setIdTccUsuario(intval($request->getAttribute('idtccusuario')));
+            $this->updateUserService->updateByIdTccUser($user);
+    
             return new ApiResponse(
-                SuccessMessage::SAVED_RECORD,
+                SuccessMessage::RECORD_CHANGED,
                 StatusHttp::CREATED,
                 ApiResponse::SUCCESS
             );

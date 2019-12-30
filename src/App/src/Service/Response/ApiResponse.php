@@ -61,9 +61,9 @@ class ApiResponse extends Response
         } else {
             if (!is_array($data)) {
                 $error = new ResponseError();
-                $error->setMessageError("Ocorreu um erro inesperado na aplicação!");
-                $error->setInternalMessageError($data);
-                $error->setInternalCodeError(-1);
+                $error->setMessage("Ocorreu um erro inesperado na aplicação!");
+                $error->setInternalMessage($data);
+                $error->setInternalCode(-1);
                 $data = [$error];
             }
             $responseData->setError($data);

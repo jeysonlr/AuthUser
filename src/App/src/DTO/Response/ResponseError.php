@@ -12,65 +12,65 @@ class ResponseError
      * @var null|string
      * @Type("string")
      */
-    private $messageerror;
+    private $message;
 
     /**
      * @var null|string
      * @Type("string")
      */
-    private $internalmessageerror;
+    private $internalmessage;
 
     /**
      * @var null|int
      * @Type("int")
      */
-    private $internalcodeerror;
+    private $internalcode;
 
     /**
      * @return mixed
      */
-    public function getMessageError()
+    public function getMessage()
     {
-        return $this->messageerror;
+        return $this->message;
     }
 
     /**
      * @param mixed $messageerror
      */
-    public function setMessageError($messageerror): void
+    public function setMessage($message): void
     {
-        $this->messageerror = $messageerror;
+        $this->message = $message;
     }
 
     /**
      * @return string|null
      */
-    public function getInternalMessageError(): ?string
+    public function getInternalMessage(): ?string
     {
-        return $this->internalmessageerror;
+        return $this->internalmessage;
     }
 
     /**
      * @param string|null $internalmessageerror
      */
-    public function setInternalMessageError(?string $internalmessageerror): void
+    public function setInternalMessage(?string $internalmessage): void
     {
-        $this->internalmessageerror = $internalmessageerror;
+        $this->internalmessage = $internalmessage;
     }
 
     /**
      * @return int|null
      */
-    public function getInternalCodeError(): ?int
+    public function getInternalCode(): ?int
     {
-        return $this->internalcodeerror;
+        return $this->internalcode;
     }
 
     /**
      * @param int|null $internalcodeerror
      */
-    public function setInternalCodeError(?int $internalcodeerror): void
+    public function setInternalCode(?int $internalcode): void
     {
-        $this->internalcodeerror = $internalcodeerror;
+        $this->internalcode = $internalcode;
     }
 }

@@ -30,7 +30,7 @@ class User implements BaseEntityInterface
      * @var string
      * @Type("string")
      * @ORM\Column(name="tccnome", type="text")
-     * @Assert\NotBlank(message="O email é obrigatório!")
+     * @Assert\NotBlank(message="O campo nome é obrigatório!")
      */
     private $tccnome;
 
@@ -38,7 +38,7 @@ class User implements BaseEntityInterface
      * @var string
      * @Type("string")
      * @ORM\Column(name="tcclogin", type="text")
-     * @Assert\NotBlank(message="O email é obrigatório!")
+     * @Assert\NotBlank(message="O campo login é obrigatório!")
      */
     private $tcclogin;
 
@@ -46,7 +46,7 @@ class User implements BaseEntityInterface
      * @var string
      * @Type("string")
      * @ORM\Column(name="tccemail", type="text")
-     * @Assert\NotBlank(message="O email é obrigatório!")
+     * @Assert\NotBlank(message="O campo email é obrigatório!")
      */
     private $tccemail;
 
@@ -54,7 +54,7 @@ class User implements BaseEntityInterface
      * @var string
      * @Type("string")
      * @ORM\Column(name="tccsenha", type="text")
-     * @Assert\NotBlank(message="O email é obrigatório!")
+     * @Assert\NotBlank(message="O campo senha é obrigatório!")
      */
     private $tccsenha;
 

@@ -12,6 +12,8 @@ use LocalBalance\Handler\GetAllLocalBalanceHandler;
 use Infrastructure\Middleware\CheckDatabaseConnectionMiddleware;
 use Authentication\Middleware\Token\AuthenticationTokenMiddleware;
 use User\Handler\GetUserByIdHandler;
+use User\Handler\UpdateUserHandler;
+use User\Middleware\User\InsertUserMiddleware;
 
 class RoutesDelegator
 {
@@ -25,16 +27,17 @@ class RoutesDelegator
         $this->app = $callback();
 
         $this->app->post('/v1/usuario', [
+            InsertUserMiddleware::class,
             InsertUserHandler::class
-        ], 'usuario.postusuario');
+        ], 'user.postusuario');
 
         $this->app->get('/v1/usuarios', [
             GetAllUserHandler::class
-        ], 'usuario.getallusuarios');
+        ], 'user.getallusuarios');
 
-        $this->app->get('/v1/usuario/{idtccusuario:\d+}', [
-            GetUserByIdHandler::class
-        ], 'usuario.getbyidusuario');
+        $this->app->put('/v1/usuario/{idtccusuario:\d+}', [
+            UpdateUserHandler::class
+        ], 'user.putusuario');
 
         return $this->app;
     }

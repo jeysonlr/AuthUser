@@ -13,17 +13,17 @@ class BaseException extends Exception implements BaseExceptionInterface
     /**
      * @var null|string
      */
-    private $messageError;
+    protected $message;
 
     /**
      * @var null|string
      */
-    private $internalMessageError;
+    private $internalMessage;
 
     /**
      * @var null|int
      */
-    private $internalCodeError;
+    private $internalCode;
 
     /**
      * @var array
@@ -42,16 +42,16 @@ class BaseException extends Exception implements BaseExceptionInterface
 
     public function __construct(
         int $statusCode,
-        ?string $messageError = null,
-        ?string $internalMessageError = null,
-        ?int $internalCodeError = null,
+        ?string $message = null,
+        ?string $internalMessage = null,
+        ?int $internalCode = null,
         ?array $arrayMessageError = null
     ) {
-        $this->messageError = empty($messageError) ? "" : $messageError;
-        $this->internalMessageError = $internalMessageError;
-        $this->internalCodeError = $internalCodeError;
+        $this->message = empty($message) ? "" : $message;
+        $this->internalMessage = $internalMessage;
+        $this->internalCode = $internalCode;
         $this->arrayMessageError = $arrayMessageError;
-        parent::__construct($this->messageError, $statusCode);
+        parent::__construct($this->message, $statusCode);
     }
 
     /**
@@ -67,7 +67,7 @@ class BaseException extends Exception implements BaseExceptionInterface
             }
             return $this->customError;
         }
-        return [$this->errorResponse($this->messageError)];
+        return [$this->errorResponse($this->message)];
     }
 
     /**
@@ -75,12 +75,12 @@ class BaseException extends Exception implements BaseExceptionInterface
      * @param $messageError
      * @return ResponseError
      */
-    public function errorResponse($messageError): ResponseError
+    public function errorResponse($message): ResponseError
     {
         $errorResponse = new ResponseError();
-        $errorResponse->setMessageError($messageError);
-        $errorResponse->setInternalMessageError($this->internalMessageError);
-        $errorResponse->setInternalCodeError($this->internalCodeError);
+        $errorResponse->setMessage($message);
+        $errorResponse->setInternalMessage($this->internalMessage);
+        $errorResponse->setInternalCode($this->internalCode);
         return $errorResponse;
     }
 
@@ -95,17 +95,17 @@ class BaseException extends Exception implements BaseExceptionInterface
     /**
      * @return string|null
      */
-    public function getInternalMessageError(): ?string
+    public function getInternalMessage(): ?string
     {
-        return $this->internalMessageError;
+        return $this->internalMessage;
     }
 
     /**
      * @return int|null
      */
-    public function getInternalCodeError(): ?int
+    public function getInternalCode(): ?int
     {
-        return $this->internalCodeError;
+        return $this->internalCode;
     }
 
     /**

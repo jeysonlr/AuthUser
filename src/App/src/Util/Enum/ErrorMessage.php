@@ -67,4 +67,19 @@ class ErrorMessage
 
     # Erro de idpcolojista não encontrado
     const ERROR_IDPCOSHOPKEEPER_NOT_FOUND = "O idpcolojista %s não foi encontrado!";
+
+    # Erro de email duplicado
+    const ERROR_EMAIL_DUPLICATED = "Já existe este email %s registrado em nossa base de dados! Por favor escolha outro email.";
+
+    # Erro de login duplicado
+    const ERROR_LOGIN_DUPLICATED = "Já existe este login %s registrado em nossa base de dados! Por favor escolha outro login.";
+
+    # Erro no formato de email
+    const ERROR_FORMAT_EMAIL_INVALID = "O email %s não possui um formato válido!";
+
+    # Erro no formato do login
+    const ERROR_FORMAT_LOGIN_INVALID = "O campo login não permite letras maiúsculas, numeros, acentos e ou caracteres especiais!";
+
+    # Erro de login
+    const ERROR_LOGIN_OR_PASSWORD_INCORRECT = "Login ou senha incorretos!";
 }

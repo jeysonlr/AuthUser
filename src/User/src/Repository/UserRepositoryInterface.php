@@ -38,4 +38,18 @@ interface UserRepositoryInterface
      * @return array
      */
     public function findAllUsers(RequestFilters $requestFilters): ?array;
+
+    /**
+     * Faz a busca de um usuario através do login
+     * @param mixed $login
+     * @return User
+     */
+    public function findByLoginTccUsuario(string $login): ?User;
+
+    /**
+     * Faz a busca de um usuario através do email
+     * @param mixed $email
+     * @return User
+     */
+    public function findByEmailTccUsuario(string $email): ?User;
 }

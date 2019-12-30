@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace App\Util\Validation;
 
 use App\Entity\BaseEntityInterface;
-use App\Util\Validation\CheckConstraints\Exception\BaseEntityException;
 use Symfony\Component\Validator\Validation;
-use App\Util\Validation\CheckConstraints\Exception\BaseEntityViolationsException;
+use App\Util\Validation\ValidationServiceInterface;
 use App\Util\Validation\CheckConstraints\CheckConstraints;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use App\Util\Validation\CheckConstraints\Exception\BaseEntityException;
+use App\Util\Validation\CheckConstraints\Exception\BaseEntityViolationsException;
 
 class ValidationService implements ValidationServiceInterface
 {
