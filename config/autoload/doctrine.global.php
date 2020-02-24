@@ -5,23 +5,21 @@ declare(strict_types=1);
 // use Doctrine\DBAL\Driver\DrizzlePDOMySql\Driver;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain;
+use Doctrine\DBAL\Driver\PDOPgSql\Driver;
 
 return [
     'doctrine' => [
         'connection' => [
             'orm_default' => [
                 'params' => [
-                    'driverClass' => Doctrine\DBAL\Driver\PDOMySql\Driver::class,
+                    'driverClass' => Driver::class,
                     'driverOptions' => array(PDO::ATTR_EMULATE_PREPARES => true),
                     'charset' => 'utf8',
-                    'host' => '127.0.0.1',
-                    'port' => '3308',
-                    'user' => 'root',
-                    'password' => '',
-                    'dbname' => 'tcc',
-                    'driverOptions' => [
-                        1002 => "SET NAMES 'UTF8'"
-                    ]
+                    'host' => 'tuffi.db.elephantsql.com',
+                    'port' => '5432',
+                    'user' => 'inoepokz',
+                    'password' => 'v1a_Z3r8m4ocXgdblwef5qZ1RyIFgzqb',
+                    'dbname' => 'inoepokz',
                 ],
             ],
         ],

@@ -10,9 +10,9 @@ use JMS\Serializer\Annotation\Type;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * enviroment.tcc_usuario
+ * tccuser
  *
- * @ORM\Table(name="enviroment.tcc_usuario")
+ * @ORM\Table(name="tccuser")
  * @ORM\Entity(repositoryClass="User\Repository\UserRepository")
  */
 class User implements BaseEntityInterface
@@ -22,6 +22,7 @@ class User implements BaseEntityInterface
      * @Type("int")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\SequenceGenerator(sequenceName="tcc_usuario_id_seq", allocationSize=1, initialValue=1)
      * @ORM\Column(name="idtccusuario", type="integer")
      */
     private $idtccusuario;

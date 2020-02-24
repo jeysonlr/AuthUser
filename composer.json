@@ -39,6 +39,7 @@
     "require": {
         "php": "^7.1",
         "ext-json": "*",
+        "ext-pgsql": "*",
         "ext-pdo": "*",
         "container-interop/container-interop": "^1.2",
         "dasprid/container-interop-doctrine": "^1.1",
