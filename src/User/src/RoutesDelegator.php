@@ -29,19 +29,19 @@ class RoutesDelegator
         $this->app->post('/v1/usuario', [
             InsertUserMiddleware::class,
             InsertUserHandler::class
-        ], 'user.postusuario');
+        ], 'users.post_users');
 
         $this->app->get('/v1/usuarios', [
             GetAllUserHandler::class
-        ], 'user.getallusuarios');
+        ], 'users.get_all_users');
 
         $this->app->get('/v1/usuarios/{idtccusuario:\d+}', [
             GetUserByIdHandler::class
-        ], 'user.getuserbyid');
+        ], 'users.get_user_by_id');
 
         $this->app->put('/v1/usuario/{idtccusuario:\d+}', [
             UpdateUserHandler::class
-        ], 'user.putusuario');
+        ], 'users.put_users');
 
         return $this->app;
     }

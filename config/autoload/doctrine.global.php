@@ -29,6 +29,7 @@ return [
                 'drivers' => [
                     'App\Entity' => 'app_entity',
                     'User\Entity' => 'user_entity',
+                    'Authentication\Entity' => 'authentication_entity',
                 ],
             ],
             'app_entity' => [
@@ -40,6 +41,11 @@ return [
                 'class' => AnnotationDriver::class,
                 'cache' => 'array',
                 'paths' => [__DIR__ . '/../../src/User/src/Entity'],
+            ],
+            'authentication_entity' => [
+                'class' => AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => [__DIR__ . '/../../src/Authentication/src/Entity'],
             ],
         ],
     ],
