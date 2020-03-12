@@ -37,27 +37,30 @@
         "forum": "https://discourse.zendframework.com/c/questions/expressive"
     },
     "require": {
+        
         "php": "^7.1",
         "ext-json": "*",
-        "ext-pgsql": "*",
         "ext-pdo": "*",
+        "ext-pgsql": "*",
         "container-interop/container-interop": "^1.2",
         "dasprid/container-interop-doctrine": "^1.1",
-        "doctrine/annotations": "^1.8",
-        "doctrine/common": "^2.11",
-        "doctrine/orm": "^2.6",
+        "doctrine/orm": "^2.7",
         "firebase/php-jwt": "^5.0",
-        "guzzlehttp/guzzle": "^6.4",
+        "guzzlehttp/guzzle": "^6.5",
         "jms/serializer": "^3.3",
-        "jsoumelidis/zend-sf-di-config": "^0.3",
+        "leaseweb/doctrine-pdo-dblib": "^1.1",
         "monolog/monolog": "^2.0",
+        "pmill/doctrine-array-hydrator": "^0.1.6",
+        "ramsey/uuid-doctrine": "^1.5",
         "respect/validation": "^1.1",
-        "symfony/validator": "^4.3",
+        "symfony/serializer": "^4.2",
+        "symfony/validator": "^5.0",
+        "symfony/yaml": "^4.3",
+        "tuupola/cors-middleware": "^1.1",
         "zendframework/zend-component-installer": "^2.1.1",
         "zendframework/zend-config-aggregator": "^1.0",
         "zendframework/zend-diactoros": "^1.7.1 || ^2.0",
         "zendframework/zend-expressive": "^3.0.1",
-        "zendframework/zend-expressive-aurarouter": "^3.0",
         "zendframework/zend-expressive-fastroute": "^3.0",
         "zendframework/zend-expressive-helpers": "^5.0",
         "zendframework/zend-servicemanager": "^3.3",
@@ -80,7 +83,10 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "AppTest\\": "test/AppTest/"
+            "AppTest\\": "test/AppTest/",
+            "App\\": "src/App/src/",
+            "Infrastructure\\": "src/Infrastructure/src/",
+            "User\\": "src/User/src/"
         }
     },
     "scripts": {
@@ -98,7 +104,7 @@
         "clear-config-cache": "php bin/clear-config-cache.php",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "serve": "php -S 0.0.0.0:8081 -t public/",
+        "serve": "php -S 0.0.0.0:8082 -t public/",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     }

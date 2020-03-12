@@ -69,6 +69,7 @@ class ConfigProvider
                 InsertUserMiddleware::class => InsertUserMiddlewareFactory::class,
                 ValidationInsertUserService::class => ValidationInsertUserServiceFactory::class,
                 CreateValidatePassword::class => CreateValidatePasswordFactory::class,
+                GetUserByIdHandler::class => GetUserByIdHandlerFactory::class,
             ],
         ];
     }

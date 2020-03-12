@@ -35,6 +35,10 @@ class RoutesDelegator
             GetAllUserHandler::class
         ], 'user.getallusuarios');
 
+        $this->app->get('/v1/usuarios/{idtccusuario:\d+}', [
+            GetUserByIdHandler::class
+        ], 'user.getuserbyid');
+
         $this->app->put('/v1/usuario/{idtccusuario:\d+}', [
             UpdateUserHandler::class
         ], 'user.putusuario');
