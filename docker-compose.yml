@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  web:
+    container_name: cdc
+    image: gazinlab/cdc_backend:v1.4.3
+    ports:
+      - "8080:80"
+      #- "443:443"
+    volumes:
+      - .:/var/www/html
+      - ${LOG_DIR-./.config/logs/apache2}:/var/log/apache2
+      - ${PHP_INI-./.config/php/php.ini}:/usr/local/etc/php/php.ini
+      - ${VHOSTS_DIR-./.config/vhosts}:/etc/apache2/sites-enabled
+
+    networks:
+      - backend
+  # docs:
+  #    container_name: documentation
+  #    image: gazinlab/documentacao:v1.0
+  #    ports:
+  #      - "3000:3000"
+  #    volumes:
+  #      - ".documentation:/projects"
+  #    networks:
+  #      - backend
+
+  # sftp:
+  #   container_name: sftp
+  #   env_file:
+  #     - .env
+  #   image: atmoz/sftp:${SFTP_VER}
+  #   volumes:
+  #     - .sftp:/home/${SFTP_USER}/upload
+  #   command: ${SFTP_USER}:${SFTP_PASSWORD}:${SFTP_UID}
+  #   ports: 
+  #     - "2223:22"
+  #   networks:
+  #     - backend
+  # siga:
+  #   container_name: siga_cdc
+  #   image: gazinlab/siga:test2
+  #   #build: ./docker/apache
+  #   ports:
+  #     - "655:80"
+  #   networks:
+  #     - backend
+
+networks:
+  backend:

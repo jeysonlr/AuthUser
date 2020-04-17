@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>oal</h1>
+    <ul id = "usuarios">
+
+    </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script>
+    axios.get('http://localhost:8082/v1/usuarios')
+    .then(response => criaListaDinamica(response.data))
+    .catch(error => console.log(error))
+
+  const criaListaDinamica = ( alunos ) => {
+    const ulAlunos = document.getElementById('usuarios')
+    alunos.map(aluno => {
+      const listaAluno = document.createElement('li')
+      listaAluno.innerHTML = `Nome: ${aluno.nome}`
+      ulAlunos.appendChild(listaAluno)
+    })
+  }
+    // const ulAlunos = document.getElementById('usuarios')
+    
+</script>
+</html>
+
+
+
+
