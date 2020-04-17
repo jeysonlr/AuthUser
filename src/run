@@ -1,1 +1,0 @@
-composer run --timeout=86400 serve
