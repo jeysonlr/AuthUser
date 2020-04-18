@@ -24,8 +24,9 @@ class RoutesDelegator
         # LOGIN
         $this->app->post("/v1/login", [
             // CheckDatabaseConnectionMiddleware::class,
-            ValidationLoginMiddleware::class,
+            // ValidationLoginMiddleware::class,
             AuthenticationTokenHandler::class,
+        
         ], "authentication.post_login");
 
         return $this->app;
