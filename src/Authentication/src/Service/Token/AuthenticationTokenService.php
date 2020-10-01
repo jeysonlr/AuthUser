@@ -58,7 +58,7 @@ class AuthenticationTokenService
 
     /**
      * Cria o token de acesso para os usuários
-     * @param PcoUserEntity |null $user
+     * @param User |null $user
      * @return string
      * @throws CreateTokenException
      */
@@ -82,12 +82,7 @@ class AuthenticationTokenService
                 "nbf" => $createdAt,
                 "exp" => $expirationTime,
                 "data" => [
-                    // "idpcousuario" => $user->getIdpcousuario(),
-                    // "nomeusuario" => $user->getNomeusuario(),
-                    // "login" => $user->getLogin(),
-                    // "email" => $user->getEmail(),
-                    // "status" => $user->getStatus(),
-                    // "lojista" => $this->getShopkeeperInArray($user),
+                   
                 ]
             ];
             $payload = $this->encode($payload);

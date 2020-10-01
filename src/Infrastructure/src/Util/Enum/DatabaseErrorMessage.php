@@ -6,5 +6,5 @@ namespace Infrastructure\Util\Enum;
 
 class DatabaseErrorMessage
 {
-    const SABIUM_CONNECTION_ERROR = "Sem conexão com o banco de dados Sabium!";
+    const DB_CONNECTION_ERROR = "Sem conexão com o banco de dados!";
 }

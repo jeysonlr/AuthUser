@@ -11,8 +11,6 @@ declare(strict_types=1);
 
 return [
     'dependencies' => [
-        'factories' => [
-            User\Middleware\User\UpdateUserMiddleware::class => User\Middleware\User\UpdateUserMiddlewareFactory::class,
-        ],
+        'factories' => [],
     ],
 ];

@@ -54,7 +54,7 @@ class DatabaseConnectionCheckService implements DatabaseConnectionCheckServiceIn
         if (!$connected) {
             throw new DatabaseConnectionException(
                 StatusHttp::INTERNAL_SERVER_ERROR,
-                DatabaseErrorMessage::SABIUM_CONNECTION_ERROR,
+                DatabaseErrorMessage::DB_CONNECTION_ERROR,
                 $this->internalMessage
             );
         }

@@ -18,7 +18,7 @@ class CheckDatabaseConnectionMiddleware implements MiddlewareInterface
     /**
      * @var DatabaseConnectionCheckService
      */
-    private $sabiumDatabaseCheckService;
+    private $databaseCheckService;
 
     /**
      * @var array
@@ -26,10 +26,10 @@ class CheckDatabaseConnectionMiddleware implements MiddlewareInterface
     private $checkDataBaseConection;
 
     public function __construct(
-        DatabaseConnectionCheckService $DatabaseConnectionCheckService,
+        DatabaseConnectionCheckService $databaseCheckService,
         array $checkDataBaseConection
     ) {
-        $this->sabiumDatabaseCheckService = $DatabaseConnectionCheckService;
+        $this->databaseCheckService = $databaseCheckService;
         $this->checkDataBaseConection = $checkDataBaseConection;
     }
 
@@ -43,12 +43,12 @@ class CheckDatabaseConnectionMiddleware implements MiddlewareInterface
         try {
             $router = $request->getAttribute('Zend\Expressive\Router\RouteResult')->getMatchedRouteName();
 
-            # se rota solicitada consultar banco SABIUM, verifica se há conexão
+            # se rota solicitada consultar banco, verifica se há conexão
             if (isset($this->checkDataBaseConection[$router])) {
-                if (in_array('sabium', array_unique($this->checkDataBaseConection[$router]))) {
-                    if (!$this->sabiumDatabaseCheckService->hasConnection()) {
-                        $this->sabiumDatabaseCheckService
-                            ->throwException($this->sabiumDatabaseCheckService->hasConnection());
+                if (in_array('banco', array_unique($this->checkDataBaseConection[$router]))) {
+                    if (!$this->databaseCheckService->hasConnection()) {
+                        $this->databaseCheckService
+                            ->throwException($this->databaseCheckService->hasConnection());
                     }
                 }
             }
